@@ -1,7 +1,7 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\Menu;
+use GiocoPlus\Admin\Auth\Database\Administrator;
+use GiocoPlus\Admin\Auth\Database\Menu;
 
 class MenuTest extends TestCase
 {

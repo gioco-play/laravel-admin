@@ -2,9 +2,9 @@
 
 namespace Tests\Controllers;
 
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use GiocoPlus\Admin\Controllers\AdminController;
+use GiocoPlus\Admin\Form;
+use GiocoPlus\Admin\Grid;
 use Tests\Models\Tag;
 use Tests\Models\User;
 

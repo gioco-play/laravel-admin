@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Encore\\Admin\\": "src/"
+            "GiocoPlus\\Admin\\": "src/"
         },
         "files": [
             "src/helpers.php"

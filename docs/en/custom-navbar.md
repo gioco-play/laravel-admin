@@ -2,9 +2,9 @@
 
 Since version `1.5.6`, you can add the html element to the top navigation bar, open `app/Admin/bootstrap.php`:
 ```php
-use Encore\Admin\Facades\Admin;
+use GiocoPlus\Admin\Facades\Admin;
 
-Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+Admin::navbar(function (\GiocoPlus\Admin\Widgets\Navbar $navbar) {
 
     $navbar->left('html...');
 
