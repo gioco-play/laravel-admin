@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace GiocoPlus\Admin\Grid\Tools;
 
-use Encore\Admin\Grid\Column;
+use GiocoPlus\Admin\Grid\Column;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;

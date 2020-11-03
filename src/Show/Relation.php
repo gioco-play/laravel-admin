@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Show;
+namespace GiocoPlus\Admin\Show;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Show;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Show;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

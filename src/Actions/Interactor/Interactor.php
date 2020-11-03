@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Actions\Interactor;
+namespace GiocoPlus\Admin\Actions\Interactor;
 
-use Encore\Admin\Actions\Action;
+use GiocoPlus\Admin\Actions\Action;
 
 abstract class Interactor
 {

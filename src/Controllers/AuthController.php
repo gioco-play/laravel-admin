@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
 use App\Helper\GlobalParam;
 use App\Models\DatabaseSession;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Layout\Content;
+use GiocoPlus\Admin\Facades\Admin;
+use GiocoPlus\Admin\Form;
+use GiocoPlus\Admin\Layout\Content;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Lang;

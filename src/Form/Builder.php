@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace GiocoPlus\Admin\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Form\Field\Hidden;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Form;
+use GiocoPlus\Admin\Form\Field\Hidden;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;

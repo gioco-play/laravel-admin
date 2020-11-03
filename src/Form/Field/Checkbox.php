@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
 use Illuminate\Contracts\Support\Arrayable;
 

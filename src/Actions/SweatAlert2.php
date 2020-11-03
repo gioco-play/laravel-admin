@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Actions;
+namespace GiocoPlus\Admin\Actions;
 
 class SweatAlert2
 {

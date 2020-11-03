@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Show;
+namespace GiocoPlus\Admin\Show;
 
 class Divider extends Field
 {

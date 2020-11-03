@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
-use Encore\Admin\Layout\Content;
+use GiocoPlus\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class AdminController extends Controller

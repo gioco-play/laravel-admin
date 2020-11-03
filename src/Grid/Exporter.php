@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace GiocoPlus\Admin\Grid;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Exporters\CsvExporter;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Grid\Exporters\CsvExporter;
 
 class Exporter
 {

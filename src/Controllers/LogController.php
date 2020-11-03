@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\OperationLog;
-use Encore\Admin\Grid;
+use GiocoPlus\Admin\Auth\Database\OperationLog;
+use GiocoPlus\Admin\Grid;
 use Illuminate\Support\Arr;
 
 class LogController extends AdminController

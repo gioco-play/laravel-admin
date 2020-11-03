@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Concerns;
+namespace GiocoPlus\Admin\Grid\Concerns;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 
 trait HasHotKeys
 {

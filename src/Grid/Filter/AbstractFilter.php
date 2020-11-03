@@ -1,15 +1,15 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace GiocoPlus\Admin\Grid\Filter;
 
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Filter\Presenter\Checkbox;
-use Encore\Admin\Grid\Filter\Presenter\DateTime;
-use Encore\Admin\Grid\Filter\Presenter\MultipleSelect;
-use Encore\Admin\Grid\Filter\Presenter\Presenter;
-use Encore\Admin\Grid\Filter\Presenter\Radio;
-use Encore\Admin\Grid\Filter\Presenter\Select;
-use Encore\Admin\Grid\Filter\Presenter\Text;
+use GiocoPlus\Admin\Grid\Filter;
+use GiocoPlus\Admin\Grid\Filter\Presenter\Checkbox;
+use GiocoPlus\Admin\Grid\Filter\Presenter\DateTime;
+use GiocoPlus\Admin\Grid\Filter\Presenter\MultipleSelect;
+use GiocoPlus\Admin\Grid\Filter\Presenter\Presenter;
+use GiocoPlus\Admin\Grid\Filter\Presenter\Radio;
+use GiocoPlus\Admin\Grid\Filter\Presenter\Select;
+use GiocoPlus\Admin\Grid\Filter\Presenter\Text;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 

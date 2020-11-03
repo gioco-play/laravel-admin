@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 use Illuminate\Support\Arr;
 
 class Dashboard

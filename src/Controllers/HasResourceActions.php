@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
 trait HasResourceActions
 {

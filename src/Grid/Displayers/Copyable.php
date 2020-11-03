@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace GiocoPlus\Admin\Grid\Displayers;
 
-use Encore\Admin\Facades\Admin;
+use GiocoPlus\Admin\Facades\Admin;
 
 /**
  * Class Copyable.

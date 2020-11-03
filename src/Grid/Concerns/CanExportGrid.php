@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Grid\Concerns;
+namespace GiocoPlus\Admin\Grid\Concerns;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Exporter;
-use Encore\Admin\Grid\Exporters\AbstractExporter;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Grid\Exporter;
+use GiocoPlus\Admin\Grid\Exporters\AbstractExporter;
 
 trait CanExportGrid
 {

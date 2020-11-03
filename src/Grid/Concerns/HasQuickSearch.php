@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Grid\Concerns;
+namespace GiocoPlus\Admin\Grid\Concerns;
 
-use Encore\Admin\Grid\Column;
-use Encore\Admin\Grid\Model;
-use Encore\Admin\Grid\Tools;
+use GiocoPlus\Admin\Grid\Column;
+use GiocoPlus\Admin\Grid\Model;
+use GiocoPlus\Admin\Grid\Tools;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 

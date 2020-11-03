@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace GiocoPlus\Admin\Widgets;
 
-use Encore\Admin\Widgets\Navbar\RefreshButton;
+use GiocoPlus\Admin\Widgets\Navbar\RefreshButton;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 

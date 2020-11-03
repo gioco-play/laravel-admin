@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
-use Encore\Admin\Form;
+use GiocoPlus\Admin\Form;
 
 class Captcha extends Text
 {

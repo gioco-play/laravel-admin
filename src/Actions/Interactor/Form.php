@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Actions\Interactor;
+namespace GiocoPlus\Admin\Actions\Interactor;
 
-use Encore\Admin\Actions\RowAction;
-use Encore\Admin\Admin;
-use Encore\Admin\Form\Field;
+use GiocoPlus\Admin\Actions\RowAction;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Form\Field;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Validation\ValidationException;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace GiocoPlus\Admin\Console;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Facades\Admin as AdminFacade;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Facades\Admin as AdminFacade;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use MatthiasMullie\Minify;

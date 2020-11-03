@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace GiocoPlus\Admin\Widgets;
 
 use Closure;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form as BaseForm;
-use Encore\Admin\Form\Field;
+use GiocoPlus\Admin\Facades\Admin;
+use GiocoPlus\Admin\Form as BaseForm;
+use GiocoPlus\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Widgets\Navbar;
+namespace GiocoPlus\Admin\Widgets\Navbar;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 use Illuminate\Contracts\Support\Renderable;
 
 /**

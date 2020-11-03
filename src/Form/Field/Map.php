@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use GiocoPlus\Admin\Form\Field;
 
 class Map extends Field
 {

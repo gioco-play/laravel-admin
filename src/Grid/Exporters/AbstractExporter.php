@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace GiocoPlus\Admin\Grid\Exporters;
 
-use Encore\Admin\Grid;
+use GiocoPlus\Admin\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
-     * @var \Encore\Admin\Grid
+     * @var \GiocoPlus\Admin\Grid
      */
     protected $grid;
 

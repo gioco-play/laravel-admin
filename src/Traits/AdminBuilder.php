@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace GiocoPlus\Admin\Traits;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Tree;
+use GiocoPlus\Admin\Form;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Tree;
 
 /**
  * @deprecated

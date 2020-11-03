@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace GiocoPlus\Admin\Grid\Filter;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 use Illuminate\Support\Arr;
 
 class Between extends AbstractFilter

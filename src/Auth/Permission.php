@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Auth;
+namespace GiocoPlus\Admin\Auth;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Middleware\Pjax;
+use GiocoPlus\Admin\Facades\Admin;
+use GiocoPlus\Admin\Middleware\Pjax;
 
 class Permission
 {

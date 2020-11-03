@@ -1,15 +1,19 @@
 {
-    "name": "encore/laravel-admin",
-    "description": "laravel admin",
+    "name": "gioco-plus/laravel-admin",
+    "description": "extended from laravel admin",
     "type": "library",
     "keywords": ["laravel", "admin", "grid", "form"],
-    "homepage": "https://github.com/z-song/laravel-admin",
+    "homepage": "https://github.com/gioco-play/laravel-admin",
     "license": "MIT",
     "version": "v1.7.16",
     "authors": [
         {
             "name": "zsong",
             "email": "zosong@126.com"
+        },
+        {
+            "name": "Xuan.Yang",
+            "email": "yang5664@gmail.com"
         }
     ],
     "require": {
@@ -51,10 +55,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Encore\\Admin\\AdminServiceProvider"
+                "GiocoPlus\\Admin\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "Encore\\Admin\\Facades\\Admin"
+                "Admin": "GiocoPlus\\Admin\\Facades\\Admin"
             }
 
         }

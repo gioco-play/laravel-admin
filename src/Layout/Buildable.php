@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace GiocoPlus\Admin\Layout;
 
 interface Buildable
 {

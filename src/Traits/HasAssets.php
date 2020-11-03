@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace GiocoPlus\Admin\Traits;
 
 trait HasAssets
 {

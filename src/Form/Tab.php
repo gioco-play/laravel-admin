@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace GiocoPlus\Admin\Form;
 
-use Encore\Admin\Form;
+use GiocoPlus\Admin\Form;
 use Illuminate\Support\Collection;
 
 class Tab

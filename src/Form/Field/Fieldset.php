@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 
 class Fieldset
 {

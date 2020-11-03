@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace GiocoPlus\Admin\Grid\Filter;
 
 class Equal extends AbstractFilter
 {

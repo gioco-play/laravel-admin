@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace GiocoPlus\Admin\Form;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 use Illuminate\Contracts\Support\Renderable;
 
 class Footer implements Renderable

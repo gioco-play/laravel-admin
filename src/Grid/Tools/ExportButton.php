@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace GiocoPlus\Admin\Grid\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Grid;
 
 class ExportButton extends AbstractTool
 {

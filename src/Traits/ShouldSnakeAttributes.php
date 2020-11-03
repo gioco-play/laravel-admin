@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace GiocoPlus\Admin\Traits;
 
-use Encore\Admin\Grid\Model as GridModel;
+use GiocoPlus\Admin\Grid\Model as GridModel;
 
 trait ShouldSnakeAttributes
 {

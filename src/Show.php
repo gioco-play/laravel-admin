@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin;
+namespace GiocoPlus\Admin;
 
-use Encore\Admin\Show\Divider;
-use Encore\Admin\Show\Field;
-use Encore\Admin\Show\Panel;
-use Encore\Admin\Show\Relation;
-use Encore\Admin\Traits\ShouldSnakeAttributes;
+use GiocoPlus\Admin\Show\Divider;
+use GiocoPlus\Admin\Show\Field;
+use GiocoPlus\Admin\Show\Panel;
+use GiocoPlus\Admin\Show\Relation;
+use GiocoPlus\Admin\Traits\ShouldSnakeAttributes;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

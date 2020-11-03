@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Actions;
+namespace GiocoPlus\Admin\Grid\Actions;
 
-use Encore\Admin\Actions\Response;
-use Encore\Admin\Actions\RowAction;
+use GiocoPlus\Admin\Actions\Response;
+use GiocoPlus\Admin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace GiocoPlus\Admin\Grid;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Middleware\Pjax;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Middleware\Pjax;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace GiocoPlus\Admin\Console;
 
 use Illuminate\Console\Command;
 

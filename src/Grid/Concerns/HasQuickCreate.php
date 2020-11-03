@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Concerns;
+namespace GiocoPlus\Admin\Grid\Concerns;
 
-use Encore\Admin\Grid\Tools\QuickCreate;
+use GiocoPlus\Admin\Grid\Tools\QuickCreate;
 
 trait HasQuickCreate
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace GiocoPlus\Admin\Form;
 
 use Closure;
 use Illuminate\Support\Arr;

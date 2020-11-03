@@ -1,19 +1,19 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
-use Encore\Admin\Widgets\Tab;
-use Encore\Admin\Widgets\Box;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Tree;
-use Encore\Admin\Show;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Layout\Row;
-use Encore\Admin\Layout\Column;
-use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Auth\Database\Administrator;
+use GiocoPlus\Admin\Widgets\Tab;
+use GiocoPlus\Admin\Widgets\Box;
+use GiocoPlus\Admin\Form;
+use GiocoPlus\Admin\Grid;
+use GiocoPlus\Admin\Tree;
+use GiocoPlus\Admin\Show;
+use GiocoPlus\Admin\Facades\Admin;
+use GiocoPlus\Admin\Layout\Content;
+use GiocoPlus\Admin\Layout\Row;
+use GiocoPlus\Admin\Layout\Column;
+use GiocoPlus\Admin\Controllers\ModelForm;
+use GiocoPlus\Admin\Auth\Database\Administrator;
 use App\Models\Company;
 use App\Helper\GlobalParam;
 
@@ -243,7 +243,7 @@ class UserController extends AdminController
     }
 
     /**
-     * @return \Encore\Admin\Tree
+     * @return \GiocoPlus\Admin\Tree
      */
     protected function treeView()
     {

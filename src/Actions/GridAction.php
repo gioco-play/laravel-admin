@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Actions;
+namespace GiocoPlus\Admin\Actions;
 
-use Encore\Admin\Grid;
+use GiocoPlus\Admin\Grid;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 

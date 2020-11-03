@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Show;
+namespace GiocoPlus\Admin\Show;
 
-use Encore\Admin\Show;
+use GiocoPlus\Admin\Show;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace GiocoPlus\Admin\Console;
 
-use Encore\Admin\Auth\Database\Permission;
+use GiocoPlus\Admin\Auth\Database\Permission;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;

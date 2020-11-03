@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace GiocoPlus\Admin\Controllers;
 
-use Encore\Admin\Actions\Action;
-use Encore\Admin\Actions\GridAction;
-use Encore\Admin\Actions\Response;
-use Encore\Admin\Actions\RowAction;
-use Encore\Admin\Widgets\Form;
+use GiocoPlus\Admin\Actions\Action;
+use GiocoPlus\Admin\Actions\GridAction;
+use GiocoPlus\Admin\Actions\Response;
+use GiocoPlus\Admin\Actions\RowAction;
+use GiocoPlus\Admin\Widgets\Form;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;

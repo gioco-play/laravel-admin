@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Actions;
+namespace GiocoPlus\Admin\Grid\Actions;
 
-use Encore\Admin\Actions\RowAction;
+use GiocoPlus\Admin\Actions\RowAction;
 
 class Edit extends RowAction
 {

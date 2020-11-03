@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace GiocoPlus\Admin\Grid\Filter\Presenter;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 
 class Text extends Presenter
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Encore\Admin;
+namespace GiocoPlus\Admin;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Form\Builder;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Form\HasHooks;
-use Encore\Admin\Form\Layout\Layout;
-use Encore\Admin\Form\Row;
-use Encore\Admin\Form\Tab;
-use Encore\Admin\Traits\ShouldSnakeAttributes;
+use GiocoPlus\Admin\Exception\Handler;
+use GiocoPlus\Admin\Form\Builder;
+use GiocoPlus\Admin\Form\Field;
+use GiocoPlus\Admin\Form\HasHooks;
+use GiocoPlus\Admin\Form\Layout\Layout;
+use GiocoPlus\Admin\Form\Row;
+use GiocoPlus\Admin\Form\Tab;
+use GiocoPlus\Admin\Traits\ShouldSnakeAttributes;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
@@ -1457,7 +1457,7 @@ class Form implements Renderable
      *
      * @param Closure $callback
      *
-     * @return \Encore\Admin\Form\Footer
+     * @return \GiocoPlus\Admin\Form\Footer
      */
     public function footer(Closure $callback = null)
     {

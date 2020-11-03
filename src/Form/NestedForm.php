@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace GiocoPlus\Admin\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Form;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -91,7 +91,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \Encore\Admin\Form
+     * @var \GiocoPlus\Admin\Form
      */
     protected $form;
 
@@ -275,7 +275,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \Encore\Admin\Form\Field\Hidden) || $value != $field->original()) {
+            if (($field instanceof \GiocoPlus\Admin\Form\Field\Hidden) || $value != $field->original()) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         Arr::set($prepared, $column, $value[$name]);

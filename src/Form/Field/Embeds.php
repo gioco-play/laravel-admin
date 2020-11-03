@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
-use Encore\Admin\Form\EmbeddedForm;
-use Encore\Admin\Form\Field;
+use GiocoPlus\Admin\Form\EmbeddedForm;
+use GiocoPlus\Admin\Form\Field;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 

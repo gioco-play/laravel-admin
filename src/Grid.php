@@ -1,16 +1,16 @@
 <?php
 
-namespace Encore\Admin;
+namespace GiocoPlus\Admin;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Grid\Column;
-use Encore\Admin\Grid\Concerns;
-use Encore\Admin\Grid\Displayers;
-use Encore\Admin\Grid\Model;
-use Encore\Admin\Grid\Row;
-use Encore\Admin\Grid\Tools;
-use Encore\Admin\Traits\ShouldSnakeAttributes;
+use GiocoPlus\Admin\Exception\Handler;
+use GiocoPlus\Admin\Grid\Column;
+use GiocoPlus\Admin\Grid\Concerns;
+use GiocoPlus\Admin\Grid\Displayers;
+use GiocoPlus\Admin\Grid\Model;
+use GiocoPlus\Admin\Grid\Row;
+use GiocoPlus\Admin\Grid\Tools;
+use GiocoPlus\Admin\Traits\ShouldSnakeAttributes;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\Relations;
 use Illuminate\Support\Collection;
@@ -41,7 +41,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \Encore\Admin\Grid\Model|\Illuminate\Database\Eloquent\Builder
+     * @var \GiocoPlus\Admin\Grid\Model|\Illuminate\Database\Eloquent\Builder
      */
     protected $model;
 

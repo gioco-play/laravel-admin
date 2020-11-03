@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Show;
+namespace GiocoPlus\Admin\Show;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;

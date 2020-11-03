@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace GiocoPlus\Admin\Console;
 
-use Encore\Admin\Facades\Admin;
+use GiocoPlus\Admin\Facades\Admin;
 use Illuminate\Console\Command;
 
 class MenuCommand extends Command

@@ -3,10 +3,10 @@
 namespace DummyNamespace;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\Dashboard;
-use Encore\Admin\Layout\Column;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Layout\Row;
+use GiocoPlus\Admin\Controllers\Dashboard;
+use GiocoPlus\Admin\Layout\Column;
+use GiocoPlus\Admin\Layout\Content;
+use GiocoPlus\Admin\Layout\Row;
 
 class HomeController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Layout;
+namespace GiocoPlus\Admin\Grid\Filter\Layout;
 
-use Encore\Admin\Grid\Filter\AbstractFilter;
+use GiocoPlus\Admin\Grid\Filter\AbstractFilter;
 use Illuminate\Support\Collection;
 
 class Column

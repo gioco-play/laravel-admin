@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace GiocoPlus\Admin\Grid\Displayers;
 
 class Prefix extends AbstractDisplayer
 {

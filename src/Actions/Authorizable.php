@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Actions;
+namespace GiocoPlus\Admin\Actions;
 
-use Encore\Admin\Facades\Admin;
+use GiocoPlus\Admin\Facades\Admin;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 

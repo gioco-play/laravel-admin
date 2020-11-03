@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace GiocoPlus\Admin\Grid\Exporters;
 
-use Encore\Admin\Grid\Column;
+use GiocoPlus\Admin\Grid\Column;
 
 class CsvExporter extends AbstractExporter
 {

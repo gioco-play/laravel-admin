@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace GiocoPlus\Admin\Form\Field;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form\Field;
+use GiocoPlus\Admin\Admin;
+use GiocoPlus\Admin\Form\Field;
 use Illuminate\Support\Arr;
 
 class ListField extends Field

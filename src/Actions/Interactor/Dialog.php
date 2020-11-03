@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Actions\Interactor;
+namespace GiocoPlus\Admin\Actions\Interactor;
 
-use Encore\Admin\Admin;
+use GiocoPlus\Admin\Admin;
 
 class Dialog extends Interactor
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace GiocoPlus\Admin\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use GiocoPlus\Admin\Facades\Admin;
 
 class Checkbox extends Radio
 {
