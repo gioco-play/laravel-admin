@@ -108,7 +108,7 @@ class Administrator extends Model implements AuthenticatableContract
      * @return void
      */
     public function belongToCompany() {
-        return $this->hasOne(Company::class, '_id', 'belong_company');
+        return $this->hasOne(Company::class, 'id', 'belong_company');
     }
 
     /**
@@ -117,7 +117,7 @@ class Administrator extends Model implements AuthenticatableContract
      * @return void
      */
     public function assignToCompany() {
-        return $this->hasOne(Company::class, '_id', 'assign_company');
+        return $this->hasOne(Company::class, 'id', 'assign_company');
     }
 
     protected static function boot()
@@ -156,7 +156,7 @@ class Administrator extends Model implements AuthenticatableContract
             if ('Y' === $action)
             {
                 $belong = $branch->attributes['belong_company'];
-                $opCode = Company::where('_id', $belong)->select('operator_code')->first();
+                $opCode = Company::where('id', $belong)->select('operator_code')->first();
                 Administrator::where('belong_company', $belong)->update(['operator_code' => $opCode['operator_code']]);
             }
             else;
@@ -183,7 +183,7 @@ class Administrator extends Model implements AuthenticatableContract
         } else {
             // 代理、業務、客服
             $companies = Company::selectOptions(function($q){
-                return $q->with('children.children.children.children.children')->where('_id', \Admin::user()->belong_company);
+                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
             }, null);
             return Operator::select('name', 'code')->whereIn('assign_company', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         }

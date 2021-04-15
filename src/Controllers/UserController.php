@@ -85,18 +85,18 @@ class UserController extends AdminController
 
         if (\Admin::user()->isRole('agent'))
         {
-            // $company = Company::where('_id', \Admin::user()->belong_company)
+            // $company = Company::where('id', \Admin::user()->belong_company)
             //                  ->with('children.children.children.children.children')
             //                  ->get();
             // $oplist = [];
             // Company::flatChildren($oplist, $company);
-            // $iplist = collect($oplist)->pluck('_id');
+            // $iplist = collect($oplist)->pluck('id');
             // $grid->model()->whereIn('belong_company', $iplist);
 
             // //
 
             $companies = Company::selectOptions(function($q){
-                return $q->with('children.children.children.children.children')->where('_id', \Admin::user()->belong_company);
+                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
             }, null);
             $grid->model()->whereIn('belong_company', array_keys($companies));
         }
@@ -120,7 +120,7 @@ class UserController extends AdminController
                 $filter->equal('assign_company', trans('admin.assignCompany'))
                        ->select(Company::selectOptions(function($q){
                             return $q->with('children.children.children.children.children')
-                                     ->where('_id', \Admin::user()->belong_company);
+                                     ->where('id', \Admin::user()->belong_company);
                         }, null));
             }
             else
@@ -203,7 +203,7 @@ class UserController extends AdminController
                 $form->hidden('belong_company')->default(\Admin::user()->belong_company);
             } else {
                 $form->select('belong_company', trans('admin.belongCompany'))->options(Company::selectOptions(function($q){
-                    return $q->with('children.children.children.children.children')->where('_id', \Admin::user()->belong_company);
+                    return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
                 }, null));
             }
         }
@@ -218,7 +218,7 @@ class UserController extends AdminController
                 $form->hidden('assign_company')->default(\Admin::user()->assign_company);
             } else {
                 $form->select('assign_company', trans('admin.assignCompany'))->options(Company::selectOptions(function($q){
-                    return $q->with('children.children.children.children.children')->where('_id', \Admin::user()->belong_company);
+                    return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
                 }, null));
                 $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::where('slug', '!=', 'administrator')->pluck('name', 'id'));
             }
