@@ -17,7 +17,6 @@
 			$nkey = "";
 		}
     }
-    \Log::info($pairs);
 ?>
 @if(isset($pairs['maxlength'])&&isset($pairs['name']))
 <span style="float:right; margin:0;" class="help-block">
