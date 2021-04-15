@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Company;
-use App\Models\Operator;
 
 /**
  * Class Administrator.
@@ -27,8 +26,7 @@ class Administrator extends Model implements AuthenticatableContract
     # 修正 Breaking change on eager loading when key is a string
     protected $keyType = 'string';
 
-    protected $fillable = ['username', 'password', 'name', 'avatar',
-                           'belong_company', 'operator_code','assign_company'];
+    protected $fillable = ['username', 'password', 'name', 'avatar'];
 
     /**
      * Create a new Eloquent model instance.
@@ -108,16 +106,7 @@ class Administrator extends Model implements AuthenticatableContract
      * @return void
      */
     public function belongToCompany() {
-        return $this->hasOne(Company::class, 'id', 'belong_company');
-    }
-
-    /**
-     * Company
-     *
-     * @return void
-     */
-    public function assignToCompany() {
-        return $this->hasOne(Company::class, 'id', 'assign_company');
+        return $this->belongsTo(Company::class, 'company_id', 'id');
     }
 
     protected static function boot()
@@ -174,18 +163,18 @@ class Administrator extends Model implements AuthenticatableContract
      * 根據當前使用者的“公司別”取出營商
      * @return void
      */
-    public function operators() {
+    public function merchants() {
 
         if (\Admin::user()->isRole('administrator')) {
-            return Operator::select('name', 'code')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
-        } else if (\Admin::user()->isRole('operator')) {
-            return Operator::select('name', 'code')->where('assign_company', \Admin::user()->assign_company)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select('name', 'code')->where('type', 'merchant')->orderBy('name')->get()->toArray();
+        } else if (\Admin::user()->isRole('merchant')) {
+            return Company::select('name', 'code')->where('assign_company', \Admin::user()->assign_company)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         } else {
             // 代理、業務、客服
             $companies = Company::selectOptions(function($q){
                 return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
             }, null);
-            return Operator::select('name', 'code')->whereIn('assign_company', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select('name', 'code')->whereIn('assign_company', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         }
     }
 }

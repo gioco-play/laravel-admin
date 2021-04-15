@@ -57,17 +57,12 @@ class UserController extends AdminController
         $grid->column('username', trans('admin.username'));
         $grid->column('name', trans('admin.name'));
         $grid->column('roles', trans('admin.roles'))->pluck('name')->label();
-        if (!\Admin::user()->isRole('operator'))
+        if (!\Admin::user()->isRole('merchant'))
         {
-            $grid->column('belong_company', trans('admin.belongCompany'))->display(function($v){
-                return GlobalParam::Company()[$v]??"";
-            });
+            $grid->column('belongToCompany.name', trans('form.belongCompany'));
         }
         else;
-        $grid->column('assign_company', trans('admin.assignCompany'))->display(function($v){
-            return GlobalParam::Company()[$v]??"";
-        });
-        // $grid->column('created_at', trans('admin.created_at'));
+        $grid->column('created_at', trans('admin.created_at'));
         // $grid->column('updated_at', trans('admin.updated_at'));
 
         $grid->actions(function (Grid\Displayers\Actions $actions) {
@@ -85,24 +80,14 @@ class UserController extends AdminController
 
         if (\Admin::user()->isRole('agent'))
         {
-            // $company = Company::where('id', \Admin::user()->belong_company)
-            //                  ->with('children.children.children.children.children')
-            //                  ->get();
-            // $oplist = [];
-            // Company::flatChildren($oplist, $company);
-            // $iplist = collect($oplist)->pluck('id');
-            // $grid->model()->whereIn('belong_company', $iplist);
-
-            // //
-
             $companies = Company::selectOptions(function($q){
-                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
+                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->company_id);
             }, null);
-            $grid->model()->whereIn('belong_company', array_keys($companies));
+            $grid->model()->whereIn('company_id', array_keys($companies));
         }
-        else if (\Admin::user()->isRole('operator'))
+        else if (\Admin::user()->isRole('merchant'))
         {
-            $grid->model()->where('assign_company', \Admin::user()->assign_company);
+            $grid->model()->where('company_id', \Admin::user()->company_id);
         }
         else;
 
@@ -111,23 +96,15 @@ class UserController extends AdminController
             $filter->like('username', trans('admin.username'));
             if (\Admin::user()->isRole('administrator'))
             {
-                $filter->equal('belong_company', trans('admin.belongCompany'))
+                $filter->equal('company_id', trans('admin.belongCompany'))
                        ->select(Company::selectOptions(null,null));
             }
             else;
-            if (!\Admin::user()->isRole('administrator'))
-            {
-                $filter->equal('assign_company', trans('admin.assignCompany'))
+            if (!\Admin::user()->isRole('administrator')){
+                $filter->equal('company_id', trans('admin.belongCompany'))
                        ->select(Company::selectOptions(function($q){
                             return $q->with('children.children.children.children.children')
-                                     ->where('id', \Admin::user()->belong_company);
-                        }, null));
-            }
-            else
-            {
-                $filter->equal('assign_company', trans('admin.assignCompany'))
-                       ->select(Company::selectOptions(function($q){
-                            return $q->with('children.children.children.children.children');
+                                     ->where('id', \Admin::user()->company_id);
                         }, null));
             }
 
@@ -192,32 +169,19 @@ class UserController extends AdminController
             ->default(function ($form) {
                 return $form->model()->password;
             });
-        $form->password('secret_key', trans('admin.secret_key'));
 
         $form->ignore(['password_confirmation']);
 
         if (\Admin::user()->isRole('administrator')) {
-            $form->select('belong_company', trans('admin.belongCompany'))->options(Company::selectOptions());
-        } else {
-            if (\Admin::user()->isRole('operator')) {
-                $form->hidden('belong_company')->default(\Admin::user()->belong_company);
-            } else {
-                $form->select('belong_company', trans('admin.belongCompany'))->options(Company::selectOptions(function($q){
-                    return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
-                }, null));
-            }
-        }
-
-        if (\Admin::user()->isRole('administrator')) {
-            $form->select('assign_company', trans('admin.assignCompany'))->options(Company::selectOptions(function($q){
+            $form->select('company_id', trans('form.belongCompany'))->options(Company::selectOptions(function($q){
                 return $q->with('children.children.children.children.children');
             }, null));
             $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::all()->pluck('name', 'id'));
         } else {
-            if (\Admin::user()->isRole('operator')) {
-                $form->hidden('assign_company')->default(\Admin::user()->assign_company);
+            if (\Admin::user()->isRole('merchant')) {
+                $form->hidden('company_id')->default(\Admin::user()->assign_company);
             } else {
-                $form->select('assign_company', trans('admin.assignCompany'))->options(Company::selectOptions(function($q){
+                $form->select('company_id', trans('form.belongCompany'))->options(Company::selectOptions(function($q){
                     return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
                 }, null));
                 $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::where('slug', '!=', 'administrator')->pluck('name', 'id'));
@@ -232,10 +196,6 @@ class UserController extends AdminController
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {
                 $form->password = bcrypt($form->password);
-            }
-            # 密钥
-            if ($form->secret_key && $form->model()->secret_key != $form->secret_key) {
-                $form->secret_key = bcrypt($form->secret_key);
             }
         });
 
