@@ -140,16 +140,6 @@ class Administrator extends Model implements AuthenticatableContract
                 $branch->{$key} = empty($value) ? null : $value;
             }
 
-            // 根據belong company 更新operator_code
-            $action = isset(request()->all()['action']) ? request()->all()['action'] : 'N';
-            if ('Y' === $action)
-            {
-                $belong = $branch->attributes['belong_company'];
-                $opCode = Company::where('id', $belong)->select('operator_code')->first();
-                Administrator::where('belong_company', $belong)->update(['operator_code' => $opCode['operator_code']]);
-            }
-            else;
-
             return $branch;
         });
 
