@@ -256,7 +256,7 @@ trait ModelTree
      *
      * @return array
      */
-    protected function buildSelectOptions(array $nodes = [], $parentId = 0, $prefix = '', $space = '&nbsp;')
+    protected function buildSelectOptions(array $nodes = [], $parentId = '0', $prefix = '', $space = '&nbsp;')
     {
         $prefix = $prefix ?: '┝'.$space;
 
