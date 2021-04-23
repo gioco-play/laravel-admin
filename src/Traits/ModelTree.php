@@ -145,7 +145,7 @@ trait ModelTree
      *
      * @return array
      */
-    protected function buildNestedArray(array $nodes = [], $parentId = 0)
+    protected function buildNestedArray(array $nodes = [], $parentId = '0')
     {
         $branch = [];
 
@@ -209,7 +209,7 @@ trait ModelTree
      * @param array $tree
      * @param int   $parentId
      */
-    public static function saveOrder($tree = [], $parentId = 0)
+    public static function saveOrder($tree = [], $parentId = '0')
     {
         if (empty(static::$branchOrder)) {
             static::setBranchOrder($tree);
