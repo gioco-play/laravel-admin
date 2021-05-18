@@ -158,13 +158,13 @@ class Administrator extends Model implements AuthenticatableContract
         if (\Admin::user()->isRole('administrator')) {
             return Company::select('name', 'code')->where('type', 'merchant')->orderBy('name')->get()->toArray();
         } else if (\Admin::user()->isRole('merchant')) {
-            return Company::select('name', 'code')->where('assign_company', \Admin::user()->assign_company)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select('name', 'code')->where('id', \Admin::user()->company_id)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         } else {
             // 代理、業務、客服
             $companies = Company::selectOptions(function($q){
-                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->belong_company);
+                return $q->with('children.children.children.children.children')->where('id', \Admin::user()->company_id);
             }, null);
-            return Company::select('name', 'code')->whereIn('assign_company', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select('name', 'code')->where('type','merchant')->whereIn('id', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         }
     }
 }
