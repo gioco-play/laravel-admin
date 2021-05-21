@@ -156,7 +156,7 @@ class Administrator extends Model implements AuthenticatableContract
     public function merchants() {
 
         if (\Admin::user()->isRole('administrator')) {
-            return Company::select('name', 'code')->where('type', 'merchant')->orderBy('name')->get()->toArray();
+            return Company::with('merchants')->where('type', 'agent')->orderBy('sort_order')->get();
         } else if (\Admin::user()->isRole('merchant')) {
             return Company::select('name', 'code')->where('id', \Admin::user()->company_id)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         } else {
