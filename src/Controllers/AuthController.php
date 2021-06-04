@@ -101,6 +101,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             $this->username()   => 'required',
             'password'          => 'required',
+            'captcha'           => 'required|captcha'
         ]);
     }
 
@@ -109,13 +110,13 @@ class AuthController extends Controller
      *
      * @return Redirect
      */
-    public function getLogout(Request $request)
+    public function getLogout(Request $request, string $message = "")
     {
         $this->guard()->logout();
 
         $request->session()->invalidate();
 
-        return redirect(config('admin.route.prefix'));
+        return redirect(route('admin.login'))->with('logout_msg', $message);
     }
 
     /**
