@@ -402,4 +402,8 @@ return [
     'extensions' => [
 
     ],
+
+    'admin_secret_key_roles' => [
+        'administrator', 'supervisor', 'finance', 'dev'
+    ],
 ];
