@@ -171,7 +171,7 @@ class AuthController extends Controller
             ->default(function ($form) {
                 return $form->model()->password;
             });
-        $form->password('secret_key', trans('form.admin_secret_key'));
+        $form->password('admin_secret_key', trans('form.admin_secret_key'));
         $form->setAction(admin_url('auth/setting'));
 
         $form->ignore(['password_confirmation']);
