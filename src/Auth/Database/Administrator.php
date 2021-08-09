@@ -159,7 +159,7 @@ class Administrator extends Model implements AuthenticatableContract
             return Company::select(\DB::raw("CONCAT('(',code,') ',name) AS name"), "code", "id", "parent_id")
                 ->with(['merchants'=>function($q){
                     $q->select(\DB::raw("CONCAT('(',code,') ',name) AS name"), "code", "id", "parent_id")->orderBy('sort_order');
-                }])->where('type', 'agent')->orderBy('sort_order')->get();
+                }])->where('type', 'agent')->orderBy('sort_order')->get()->toArray();
         } else if (\Admin::user()->isRole('merchant')) {
             return Company::select('name', 'code')->where('id', \Admin::user()->company_id)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         } else {
