@@ -9,9 +9,11 @@ use GiocoPlus\Admin\Form;
 use GiocoPlus\Admin\Layout\Content;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use PragmaRX\Google2FA\Google2FA;
 
 class AuthController extends Controller
 {
@@ -35,10 +37,10 @@ class AuthController extends Controller
 
         $timezones = GlobalParam::Timezone()->toArray();
         # 切換語系
-        $lang = \App::getLocale();
+        $lang = App::getLocale();
         if (request()->has('lang')) {
             $lang = request()->get('lang');
-            \App::setLocale($lang);
+            App::setLocale($lang);
         }
         # 切換時區
         $timezone = date_default_timezone_get();
@@ -69,6 +71,12 @@ class AuthController extends Controller
         $credentials = $request->only([$this->username(), 'password']);
         $remember = $request->get('remember', false);
 
+        if ($request->get('google_auth', false) && $this->googleAuthValidate($request->only([$this->username(), 'google_auth'])) === false) {
+            return back()->withInput()->withErrors([
+                'google_auth' => __('auth.failed'),
+            ]);
+        }
+
         if ($this->guard()->attempt($credentials, $remember)) {
 
             $session = DatabaseSession::where('username', $credentials['username'])->first();
@@ -98,11 +106,34 @@ class AuthController extends Controller
      */
     protected function loginValidator(array $data)
     {
-        return Validator::make($data, [
+        $rules = [
             $this->username()   => 'required',
             'password'          => 'required',
-            'captcha'           => 'required|captcha'
-        ]);
+            'captcha'           => 'required_if:google_auth,NULL|captcha',
+            'google_auth'       => 'required_if:captcha,NULL'
+        ];
+        if (!empty($data['google_auth'])) {
+            unset($rules['captcha']);
+        }
+        return Validator::make($data, $rules);
+    }
+
+    /**
+     * Google Auth
+     *
+     * @param array $data
+     * @return void
+     */
+    protected function googleAuthValidate(array $data) {
+        $account = $data[$this->username()];
+        $secret = $data['google_auth'];
+        $userModel = config('admin.database.users_model');
+        $user = (new $userModel)->where('username', $account)->first();
+        if ($user) {
+            $google2fa = (new \PragmaRX\Google2FAQRCode\Google2FA());
+            return $google2fa->verifyKey($user->google2fa_secret, $secret);
+        }
+        return false;
     }
 
     /**
