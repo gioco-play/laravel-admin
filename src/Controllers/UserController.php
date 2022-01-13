@@ -16,6 +16,7 @@ use GiocoPlus\Admin\Controllers\ModelForm;
 use GiocoPlus\Admin\Auth\Database\Administrator;
 use App\Models\Company;
 use App\Helper\GlobalParam;
+use Illuminate\Http\Request;
 
 class UserController extends AdminController
 {
@@ -43,6 +44,21 @@ class UserController extends AdminController
     //     return $content;
     // }
 
+    public function show($id, Content $content)
+    {
+        $userModel = config('admin.database.users_model');
+        $user = (new $userModel)->where('id', $id)->first();
+
+        $google2fa = (new \PragmaRX\Google2FAQRCode\Google2FA());
+        $qrcode = $google2fa->getQRCodeInline(
+            "XGD BoAdmin ". env('APP_ENV'),
+            $user->name,
+            $user->google2fa_secret,
+            120
+        );
+        return view('admin.user.qrcode', compact('qrcode'));
+    }
+
     /**
      * Make a grid builder.
      *
@@ -62,8 +78,26 @@ class UserController extends AdminController
             $grid->column('belongToCompany.name', trans('form.belongCompany'));
         }
         else;
-        $grid->column('created_at', trans('admin.created_at'));
-        // $grid->column('updated_at', trans('admin.updated_at'));
+        $grid->column('google2fa_secret', trans('GoogleAuth'))->display(function($data){
+            if (empty($data)) {
+                return "";
+            }
+            $options = [
+                "src" => route('admin.auth.users.show', $this->id),
+                "type" => "iframe",
+                "iframe" => [
+                    "css" => [
+                        "width" => '320px',
+                        "height" => '320px'
+                    ]
+                ]
+            ];
+            return "<a data-fancybox data-options='" . json_encode($options) ."' href='javascript:;'>".__('show')."</a>";
+        });
+        $grid->column('created_at', trans('admin.created_at'))->hide();
+        $grid->column('updated_at', trans('admin.updated_at'))->hide();
+
+        $grid->model()->orderBy('created_at', 'desc');
 
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             if ($actions->getKey() == 1) {
@@ -156,7 +190,7 @@ class UserController extends AdminController
 
         $userTable = config('admin.database.users_table');
         $connection = config('admin.database.connection');
-
+        $form->hidden('google2fa_secret');
         $form->display('id', 'ID');
         $form->text('username', trans('admin.username'))
             ->creationRules(['required', "unique:{$connection}.{$userTable}"])
@@ -164,6 +198,10 @@ class UserController extends AdminController
 
         $form->text('name', trans('admin.name'))->rules('required');
         $form->image('avatar', trans('admin.avatar'));
+        $form->radio('auth_method', trans('auth_method'))->options([
+            'code' => __('captcha'),
+            'google' => __('GoogleAuth'),
+        ]);
         $form->password('password', trans('admin.password'))->rules('required|confirmed');
         $form->password('password_confirmation', trans('admin.password_confirmation'))->rules('required')
             ->default(function ($form) {
@@ -196,6 +234,12 @@ class UserController extends AdminController
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {
                 $form->password = bcrypt($form->password);
+            }
+
+            if (empty($form->model()->google2fa_secret)) {
+                $google2fa = (new \PragmaRX\Google2FAQRCode\Google2FA());
+                $prefix = str_pad($form->username, 10, 'X');
+                $form->google2fa_secret = $google2fa->generateSecretKey(16, $prefix);
             }
         });
 
