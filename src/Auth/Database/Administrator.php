@@ -161,13 +161,14 @@ class Administrator extends Model implements AuthenticatableContract
                     $q->select(\DB::raw("CONCAT('(',code,') ',name) AS name"), "code", "id", "parent_id")->orderBy('sort_order');
                 }])->where('type', 'agent')->orderBy('sort_order')->get()->toArray();
         } else if (\Admin::user()->isRole('merchant')) {
-            return Company::select('name', 'code')->where('id', \Admin::user()->company_id)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select(\DB::raw("CONCAT('(',code,') ',name) AS name"), "code")->where('id', \Admin::user()->company_id)->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         } else {
             // 代理、業務、客服
             $companies = Company::selectOptions(function($q){
                 return $q->with('children.children.children.children.children')->where('id', \Admin::user()->company_id);
             }, null);
-            return Company::select('name', 'code')->where('type','merchant')->whereIn('id', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
+            return Company::select(\DB::raw("CONCAT('(',code,') ',name) AS name"), "code")->where('type','merchant')
+                ->whereIn('id', array_keys($companies))->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)->toArray();
         }
     }
 }
