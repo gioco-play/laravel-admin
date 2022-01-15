@@ -236,14 +236,38 @@ trait ModelTree
      *
      * @return array
      */
-    public static function selectOptions(\Closure $closure = null, $rootText = 'ROOT')
+    public static function selectOptions(\Closure $closure = null, $rootText = 'ROOT', $optionKey = 'id')
     {
         $options = (new static())->withQuery($closure)->buildSelectOptions();
         // 不顯示ROOT
         if ($rootText === null) {
-            return collect($options)->all();
+            return static::ReplaceOptionsKey(collect($options)->all(), $optionKey);
         }
-        return collect($options)->prepend($rootText, 0)->all();
+
+        $data = collect($options)->prepend($rootText, 0)->all();
+        return static::ReplaceOptionsKey($data, $optionKey);
+    }
+
+    /**
+     * 替換Option值
+     *
+     * @param array $options
+     * @param string $optionKey
+     * @return array
+     */
+    protected static function ReplaceOptionsKey(array $options, string $optionKey)
+    {
+        $newOptions = [];
+        $nodes = (new static())->allNodes();
+        $replace = collect($nodes)->pluck($optionKey, 'id');
+        foreach($options as $k => $v) {
+            if (isset($replace[$k])) {
+                $newOptions[$replace[$k]] = $v;
+            } else {
+                $newOptions[$k] = $v;
+            }
+        }
+        return $newOptions;
     }
 
     /**
