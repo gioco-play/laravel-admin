@@ -165,7 +165,7 @@ class CsvExporter extends AbstractExporter
             });
             fclose($handle);
         };
-
+        echo "\xEF\xBB\xBF";
         response()->stream($response, 200, $this->getHeaders())->send();
 
         exit;
